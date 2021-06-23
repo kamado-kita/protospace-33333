@@ -83,7 +83,6 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.10.0)
-    execjs (2.8.1)
     ffi (1.15.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -112,6 +111,8 @@ GEM
     mysql2 (0.5.3)
     nio4r (2.5.7)
     nokogiri (1.11.3-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.11.3-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pry (0.14.0)
@@ -198,8 +199,6 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.9)
       thread_safe (~> 0.1)
-    uglifier (4.2.0)
-      execjs (>= 0.3.0, < 3)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.1.0)
@@ -224,6 +223,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap (>= 1.4.2)
@@ -244,7 +244,6 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
   tzinfo-data
-  uglifier
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)
