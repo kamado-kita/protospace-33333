@@ -4,9 +4,9 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to prototype_path(@comment.prototype)
     else
-      @prototype = comment.prototype
+      @prototype = @comment.prototype
       @comments = @prototype.comments #CommentsController
-      render "protorypes/show"
+      redirect_to prototype_path(@comment.prototype)
     end
   end
 

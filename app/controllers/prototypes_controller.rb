@@ -1,4 +1,5 @@
 class PrototypesController < ApplicationController
+  protect_from_forgery
   before_action :authenticate_user!, except: [:index, :show]
   before_action :contributor_confirmation, only: [:edit, :update, :destroy]
   def index
@@ -11,17 +12,14 @@ class PrototypesController < ApplicationController
 
   def create
     @prototype = Prototype.new(prototype_params)
-    if @prototype.save
-      redirect_to root_path
-    else
-      render :new
-    end
+    @prototype.save
+    redirect_to prototype_path(@comment.prototype)
   end
 
   def show
     @comment = Comment.new
     @prototype = Prototype.find(params[:id])
-    @comments = @prototype.comments
+    @comments = @prototype.comments.includes(:user)
   end
 
   def edit
