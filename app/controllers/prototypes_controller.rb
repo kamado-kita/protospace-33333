@@ -12,8 +12,11 @@ class PrototypesController < ApplicationController
 
   def create
     @prototype = Prototype.new(prototype_params)
-    @prototype.save
-    redirect_to prototype_path(@comment.prototype)
+    if @prototype.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def show
@@ -57,5 +60,4 @@ class PrototypesController < ApplicationController
     redirect_to root_path unless current_user.id == @prototype.user_id
 
   end
-
 end
